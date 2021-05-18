@@ -4,14 +4,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{  int count = Model.Movies.Count();
-    int random = new Random().Next(1, count+1); }
 
-    @foreach (var rand in Model.Movies)
-    {
-        if (rand.Id==random)
+@{ int count = Model.Movies.Count();
+    int random = new Random().Next(1, count+1); }
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th> Movie </th>
+            <th> Genre</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var rand in Model.Movies)
         {
-            <h2>@rand.Name</h2>
-        }
+        <tr>
+            @if (rand.Id == random)
+            {
+            <td>
+                @Html.ActionLink(rand.Name, "Details", "Movie", new { id = rand.Id }, null)
                 
-    }
+            </td>
+                <td>@rand.Genre.Name</td>
+                
+            }
+
+           
+
+        </tr>
+        }
+    </tbody>
+</table>

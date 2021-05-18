@@ -233,8 +233,21 @@
     <Compile Include="Migrations\202105181238015_AddBirthDayToCust.Designer.cs">
       <DependentUpon>202105181238015_AddBirthDayToCust.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105181749249_AddingMoviePropAndGenreColumn.cs" />
+    <Compile Include="Migrations\202105181749249_AddingMoviePropAndGenreColumn.Designer.cs">
+      <DependentUpon>202105181749249_AddingMoviePropAndGenreColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181750432_PopulatingGenreWithData.cs" />
+    <Compile Include="Migrations\202105181750432_PopulatingGenreWithData.Designer.cs">
+      <DependentUpon>202105181750432_PopulatingGenreWithData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181858050_AddingMovieWithId=2.cs" />
+    <Compile Include="Migrations\202105181858050_AddingMovieWithId=2.Designer.cs">
+      <DependentUpon>202105181858050_AddingMovieWithId=2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -459,6 +472,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105181238015_AddBirthDayToCust.resx">
       <DependentUpon>202105181238015_AddBirthDayToCust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181749249_AddingMoviePropAndGenreColumn.resx">
+      <DependentUpon>202105181749249_AddingMoviePropAndGenreColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181750432_PopulatingGenreWithData.resx">
+      <DependentUpon>202105181750432_PopulatingGenreWithData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181858050_AddingMovieWithId=2.resx">
+      <DependentUpon>202105181858050_AddingMovieWithId=2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

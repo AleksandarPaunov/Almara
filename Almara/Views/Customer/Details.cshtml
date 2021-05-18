@@ -8,7 +8,7 @@
 <h2>@Model.Name</h2>
  
 <ul>
-    <li>@Model.MembershipType.Name</li>
+    <li>Membership Type: @Model.MembershipType.Name</li>
 
 
 
@@ -17,7 +17,7 @@
     {
 
 <li>
-    @Html.DisplayFor(modelItem => modelItem.BirthDate).ToString().Substring(0, 9)
+    Customer Birthdate > @Html.DisplayFor(modelItem => modelItem.BirthDate).ToString().Substring(0, 9)
 </li>
 
     }

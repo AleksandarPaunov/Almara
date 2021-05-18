@@ -4,14 +4,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List of Movies</h2>
+
 <table class="table table-bordered table-striped table-hover">
- 
+    <thead>
+        <tr>
+            <th>Movies</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach (var movie in Model.Movies)
         {
-                <tr>
-                     <td>@Html.ActionLink(movie.Name,"Details","Movie",new {id=movie.Id },null)</td>
-                </tr>
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "Details", "Movie", new { id = movie.Id }, null)</td>
+                <td>@movie.Genre.Name</td>
+            </tr>
         }
-   
+    </tbody>
     </table>

@@ -5,35 +5,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Almara.Controllers
 {
     public class MovieController : Controller
     {
+        private ApplicationDbContext _context;
+        public MovieController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Movie
         public ActionResult Random()
         {
-            var movie = new List<Movie>
-            {
-                new Movie{Name="Shrek",Id=1},
-                new Movie{Name="Shazam",Id=2},
-                new Movie{Name="Wall-e",Id=3},
-                new Movie{Name="LoTR",Id=4}
-            };
 
-            var customers = new List<Customer>
+            var moviesDb = _context.Movies.Include(m => m.Genre).ToList();
+            if(moviesDb == null)
             {
-                new Customer{Name="Aleksandar" },
-                 new Customer{Name="Marti" }
-            };
-
-            var viewModel = new RandomMovieViewModel()
+                return Content("There are no movies in the database!");
+            }
+            var movies = new RandomMovieViewModel()
             {
-                Movies = movie,
-                Customers = customers
+                Movies = moviesDb
             };
-            
-            return View(viewModel);
+            return View(movies);
         }
 
         public ActionResult Edit(int id)
@@ -44,7 +45,7 @@ namespace Almara.Controllers
         public ActionResult Index()
         {
 
-            var movies = GetMovies();
+            var movies = _context.Movies.Include(m=>m.Genre).ToList();
             var listMovies = new RandomMovieViewModel
             {
                 Movies = movies
@@ -59,7 +60,7 @@ namespace Almara.Controllers
 
         public ActionResult Details(int id)
         {
-            var movies = GetMovies();
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
             var movieList = movies.SingleOrDefault(x => x.Id == id);
             if (movieList == null)
             {
@@ -75,15 +76,5 @@ namespace Almara.Controllers
             return Content(year + "/" + month);
         }
 
-        private List<Movie>GetMovies()
-        {
-            return new List<Movie>
-            {
-                new Movie {Name= "Shrek", Id=1},
-                new Movie {Name= "Wall-e", Id=2},
-                new Movie {Name= "Shazam", Id=3}
-
-            };
-        }
     }
 }
