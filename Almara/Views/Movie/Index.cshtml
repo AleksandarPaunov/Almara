@@ -1,0 +1,17 @@
+﻿@model Almara.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Movies</h2>
+<table class="table table-bordered table-striped table-hover">
+ 
+        @foreach (var movie in Model.Movies)
+        {
+                <tr>
+                     <td>@Html.ActionLink(movie.Name,"Details","Movie",new {id=movie.Id },null)</td>
+                </tr>
+        }
+   
+    </table>

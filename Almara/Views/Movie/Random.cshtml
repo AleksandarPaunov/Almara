@@ -1,0 +1,17 @@
+﻿@model Almara.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{  int count = Model.Movies.Count();
+    int random = new Random().Next(1, count+1); }
+
+    @foreach (var rand in Model.Movies)
+    {
+        if (rand.Id==random)
+        {
+            <h2>@rand.Name</h2>
+        }
+                
+    }

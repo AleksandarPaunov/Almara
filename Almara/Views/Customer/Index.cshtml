@@ -1,0 +1,26 @@
+﻿@model Almara.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+<table class="table table-bordered table-striped table-hover">
+
+
+    <tbody>
+        @foreach (var cust in Model.Customers)
+        {
+            <tr>
+
+                <td>@Html.ActionLink(cust.Name,"Details","Customer",new { id=cust.Id },null)</td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
