@@ -209,6 +209,26 @@
     <Compile Include="Migrations\202105181137541_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>202105181137541_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105181155088_ApplyAnnotationToCustomer.cs" />
+    <Compile Include="Migrations\202105181155088_ApplyAnnotationToCustomer.Designer.cs">
+      <DependentUpon>202105181155088_ApplyAnnotationToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181204393_FixingAnnotations.cs" />
+    <Compile Include="Migrations\202105181204393_FixingAnnotations.Designer.cs">
+      <DependentUpon>202105181204393_FixingAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181222484_AddingNameToMembershipTypes.cs" />
+    <Compile Include="Migrations\202105181222484_AddingNameToMembershipTypes.Designer.cs">
+      <DependentUpon>202105181222484_AddingNameToMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181223369_PopulateMembershipTypeNames.cs" />
+    <Compile Include="Migrations\202105181223369_PopulateMembershipTypeNames.Designer.cs">
+      <DependentUpon>202105181223369_PopulateMembershipTypeNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181230202_UpdatingAllMembershipNames.cs" />
+    <Compile Include="Migrations\202105181230202_UpdatingAllMembershipNames.Designer.cs">
+      <DependentUpon>202105181230202_UpdatingAllMembershipNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -417,6 +437,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105181137541_PopulateMembershipTypes.resx">
       <DependentUpon>202105181137541_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181155088_ApplyAnnotationToCustomer.resx">
+      <DependentUpon>202105181155088_ApplyAnnotationToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181204393_FixingAnnotations.resx">
+      <DependentUpon>202105181204393_FixingAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181222484_AddingNameToMembershipTypes.resx">
+      <DependentUpon>202105181222484_AddingNameToMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181223369_PopulateMembershipTypeNames.resx">
+      <DependentUpon>202105181223369_PopulateMembershipTypeNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181230202_UpdatingAllMembershipNames.resx">
+      <DependentUpon>202105181230202_UpdatingAllMembershipNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -5,15 +5,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Almara.Controllers
 {
     public class CustomerController : Controller
     {
+        private ApplicationDbContext _context;
+        public CustomerController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Customer
         public ActionResult Index()
         {
-            var customers = GetCustomers();
+            var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
             var custList = new RandomMovieViewModel() 
             { Customers= customers };
 
@@ -27,22 +38,14 @@ namespace Almara.Controllers
 
         public ActionResult Details(int id)
         {
-            var customers = GetCustomers();
-            var cust = customers.SingleOrDefault(x => x.Id == id);
+            
+            var cust = _context.Customers.SingleOrDefault(x => x.Id == id);
             if (cust==null)
             {
                 return Content("No such customer found in the database!");
             }
             return View(cust);
         }
-        private List<Customer> GetCustomers()
-        {
-            return new List<Customer>
-            {
-                new Customer{Name="Aleksandar Paunov",Id=1},
-                new Customer{Name="Martin",Id=2},
-                new Customer{Name="Rafaela Mavila",Id=3}
-            };
-        }
+      
     }
 }
