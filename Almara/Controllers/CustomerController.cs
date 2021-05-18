@@ -38,8 +38,11 @@ namespace Almara.Controllers
 
         public ActionResult Details(int id)
         {
+            Customer cust = _context.Customers.Include(c => c.MembershipType)
+                .SingleOrDefault(x => x.Id == id);
             
-            var cust = _context.Customers.SingleOrDefault(x => x.Id == id);
+            
+            
             if (cust==null)
             {
                 return Content("No such customer found in the database!");
