@@ -20,7 +20,7 @@
         {
             <tr>
 
-                <td>@Html.ActionLink(cust.Name,"Edit","Customer",new { id=cust.Id },null)</td>
+                <td>@Html.ActionLink(cust.Name, "Edit", "Customer", new { id = cust.Id }, null)</td>
                 <td>@cust.MembershipType.Name</td>
 
             </tr>
@@ -28,6 +28,12 @@
 
 
     </tbody>
+
 </table>
+<h3></h3>
+<button type="submit" class="btn btn-primary"
+        onclick="window.location.href = '@Url.Action("New", "Customer")';">
+    Add Customer
+</button>
 
 

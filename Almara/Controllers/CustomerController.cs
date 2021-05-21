@@ -38,7 +38,7 @@ namespace Almara.Controllers
         [HttpPost] // Can only post can be accessed manually > customer/Create
         public ActionResult Save(Customer customer)
         {
-            if (customer.Id==null)
+            if (customer.Id==0)
             {
                 _context.Customers.Add(customer);
             }
@@ -81,7 +81,7 @@ namespace Almara.Controllers
             {
                 MembershipTypes = membershipTypes
             };
-
+             
             return View("CustomerForm",viewModel);
         }
 

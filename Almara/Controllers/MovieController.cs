@@ -21,31 +21,72 @@ namespace Almara.Controllers
         {
             _context.Dispose();
         }
-        // GET: Movie
-        public ActionResult Random()
-        {
 
-            var moviesDb = _context.Movies.Include(m => m.Genre).ToList();
-            if(moviesDb == null)
-            {
-                return Content("There are no movies in the database!");
-            }
-            var movies = new RandomMovieViewModel()
-            {
-                Movies = moviesDb
-            };
-            return View(movies);
+        public ActionResult Save(Movie movie)
+        {
+            var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == movie.Id);
+            movieInDb.Name = movie.Name;
+            movieInDb.ReleaseDate = movie.ReleaseDate;
+            movieInDb.NumberInStock = movie.NumberInStock;
+            movieInDb.DateAdded = movie.DateAdded;
+            movieInDb.GenreId = movie.GenreId;
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Index","Movie");
         }
+       
+        
 
         public ActionResult Edit(int id)
         {
-            return Content("id=" + id);
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if (movie==null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new MovieFormViewModel()
+            {   Movie = movie,
+                Genres = _context.Genres.ToList()
+               
+            };
+
+            return View(viewModel);
+
+            
+
+
+
+
+
+
+
+        }
+        
+        public ActionResult Add(Movie movie)
+        {
+            if (movie.Id==0)
+            {
+                _context.Movies.Add(movie);
+            }
+            
+            _context.SaveChanges();
+            return RedirectToAction("Index","Movie");
+        }
+
+ 
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var viewModel = new MovieFormViewModel { Genres=genres };
+
+            return View("MovieForm",viewModel);
         }
 
         public ActionResult Index()
         {
 
-            var movies = _context.Movies.Include(m=>m.Genre).ToList();
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
             var listMovies = new RandomMovieViewModel
             {
                 Movies = movies
@@ -70,10 +111,26 @@ namespace Almara.Controllers
         }
 
         [Route("movie/released/{year}/{month:range(1, 12):regex(\\d{2})}")]
-        public ActionResult ByReleaseYear(int year,int month)
+        public ActionResult ByReleaseYear(int year, int month)
         {
 
             return Content(year + "/" + month);
+        }
+
+
+        public ActionResult Random()
+        {
+
+            var moviesDb = _context.Movies.Include(m => m.Genre).ToList();
+            if (moviesDb == null)
+            {
+                return Content("There are no movies in the database!");
+            }
+            var movies = new RandomMovieViewModel()
+            {
+                Movies = moviesDb
+            };
+            return View(movies);
         }
 
     }

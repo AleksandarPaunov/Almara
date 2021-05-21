@@ -9,15 +9,27 @@ namespace Almara.Models
     public class Movie
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+
         [Required]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
+
         [Required]
         public DateTime DateAdded { get; set; }
-        [Required]
+
+        [Required] 
+        [Display(Name="Number in stock")]
+        
         public int NumberInStock { get; set; }
-        [Required]
+
+        
         public Genre Genre { get; set; }
+
+        [Required]
+        [Display(Name="Genre")]
         public int GenreId { get; set; }
 
     }

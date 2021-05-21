@@ -253,6 +253,10 @@
     <Compile Include="Migrations\202105211149550_MembershipTypeNameIsRequired.Designer.cs">
       <DependentUpon>202105211149550_MembershipTypeNameIsRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105212008369_ChangesToMovieClass.cs" />
+    <Compile Include="Migrations\202105212008369_ChangesToMovieClass.Designer.cs">
+      <DependentUpon>202105212008369_ChangesToMovieClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -263,6 +267,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -430,6 +435,9 @@
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Movie\Details.cshtml" />
     <Content Include="Views\Customer\CustomerForm.cshtml" />
+    <Content Include="Views\Movie\MovieForm.cshtml" />
+    <Content Include="Views\Movie\Edit.cshtml" />
+    <Content Include="Views\Customer\New.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -497,6 +505,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105211149550_MembershipTypeNameIsRequired.resx">
       <DependentUpon>202105211149550_MembershipTypeNameIsRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105212008369_ChangesToMovieClass.resx">
+      <DependentUpon>202105212008369_ChangesToMovieClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

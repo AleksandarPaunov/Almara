@@ -3,12 +3,14 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
+<h2>Movies</h2>
+<button type="submit" class="btn btn-primary" onclick="window.location.href = '@Url.Action("New", "Movie")';">New Movie</button>
+<h3></h3>
 <table class="table table-bordered table-striped table-hover">
     <thead>
+
         <tr>
-            <th>Movies</th>
+            <th>Movie</th>
             <th>Genre</th>
         </tr>
     </thead>
@@ -16,7 +18,7 @@
         @foreach (var movie in Model.Movies)
         {
             <tr>
-                <td>@Html.ActionLink(movie.Name, "Details", "Movie", new { id = movie.Id }, null)</td>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movie", new { id = movie.Id }, null)</td>
                 <td>@movie.Genre.Name</td>
             </tr>
         }
