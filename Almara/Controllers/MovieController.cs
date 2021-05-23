@@ -122,10 +122,7 @@ namespace Almara.Controllers
         {
 
             var moviesDb = _context.Movies.Include(m => m.Genre).ToList();
-            if (moviesDb == null)
-            {
-                return Content("There are no movies in the database!");
-            }
+            moviesDb.RemoveAll(movie => movie == null);
             var movies = new RandomMovieViewModel()
             {
                 Movies = moviesDb

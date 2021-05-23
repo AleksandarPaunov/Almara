@@ -5,8 +5,8 @@
 }
 
 
-@{ int count = Model.Movies.Count();
-    int random = new Random().Next(1, count+1); }
+@{  int count = Model.Movies.Count();
+    int random = new Random().Next(1, count); }
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
@@ -19,7 +19,7 @@
         @foreach (var rand in Model.Movies)
         {
         <tr>
-            @if (rand.Id == random)
+            @if (rand.Id == random&&rand.Name!=null)
             {
             <td>
                 @Html.ActionLink(rand.Name, "Details", "Movie", new { id = rand.Id }, null)

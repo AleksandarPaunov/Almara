@@ -257,12 +257,17 @@
     <Compile Include="Migrations\202105212008369_ChangesToMovieClass.Designer.cs">
       <DependentUpon>202105212008369_ChangesToMovieClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105221932286_FixingRandomMovieAddingMovieID7.cs" />
+    <Compile Include="Migrations\202105221932286_FixingRandomMovieAddingMovieID7.Designer.cs">
+      <DependentUpon>202105221932286_FixingRandomMovieAddingMovieID7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18IfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -275,6 +280,7 @@
     <Content Include="App_Data\aspnet-Almara-20210517122603_log.ldf">
       <DependentUpon>aspnet-Almara-20210517122603.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap-darkly.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -283,6 +289,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Pics\background.png" />
+    <Content Include="Pics\best.png" />
+    <Content Include="Pics\stone.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -508,6 +517,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105212008369_ChangesToMovieClass.resx">
       <DependentUpon>202105212008369_ChangesToMovieClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105221932286_FixingRandomMovieAddingMovieID7.resx">
+      <DependentUpon>202105221932286_FixingRandomMovieAddingMovieID7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
