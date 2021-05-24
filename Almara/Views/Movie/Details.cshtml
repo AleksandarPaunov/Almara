@@ -10,10 +10,14 @@
     <li>
         Genre: @Model.Genre.Name
     </li>
-    <li>Date Added: @Model.DateAdded.ToString().Substring(0, 9)</li>
-    <li>Release Date: @Model.ReleaseDate.ToString().Substring(0, 9)</li>
+    @if (Model.DateAdded!=null)
+    {
+        <li>Date Added: @Model.DateAdded.ToString().Substring(0, 9)</li>
+    }
+
+    <li>Release Year: @Model.ReleaseYear</li>
     <li>Numbers in stock: @Model.NumberInStock</li>
-  
-    
+
+
 </ul>
 

@@ -22,11 +22,13 @@ namespace Almara.Controllers
             _context.Dispose();
         }
 
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult Save(Movie movie)
         {
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == movie.Id);
             movieInDb.Name = movie.Name;
-            movieInDb.ReleaseDate = movie.ReleaseDate;
+            movieInDb.ReleaseYear = movie.ReleaseYear;
             movieInDb.NumberInStock = movie.NumberInStock;
             movieInDb.DateAdded = movie.DateAdded;
             movieInDb.GenreId = movie.GenreId;
@@ -63,22 +65,40 @@ namespace Almara.Controllers
 
         }
         
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult Add(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+
+                };
+                return View("MovieForm", viewModel);
+            }
             if (movie.Id==0)
             {
                 _context.Movies.Add(movie);
             }
+     
             
             _context.SaveChanges();
             return RedirectToAction("Index","Movie");
         }
 
- 
+        
+        
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
-            var viewModel = new MovieFormViewModel { Genres=genres };
+            var viewModel = new MovieFormViewModel
+            {
+                Movie = new Movie(),
+                Genres=genres 
+            };
 
             return View("MovieForm",viewModel);
         }

@@ -8,17 +8,30 @@
 
 @using (Html.BeginForm("Add","Movie"))
 {
+    @Html.ValidationSummary(true,"Please fix the following.")
 <div class="form-group">
     @Html.LabelFor(m=>m.Movie.Name)
     @Html.TextBoxFor(m=>m.Movie.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m=>m.Movie.Name)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Movie.GenreId)
+    @Html.DropDownListFor(m => m.Movie.GenreId,
+    new SelectList(Model.Genres, "Id", "Name"), "Select genre",
+    new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Movie.GenreId)
+
 </div>
 <div class="form-group">
-    @Html.LabelFor(m => m.Movie.ReleaseDate)
-    @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:yyyy}", new { @class = "form-control" })
+    @Html.LabelFor(m => m.Movie.ReleaseYear)
+    @Html.TextBoxFor(m => m.Movie.ReleaseYear, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Movie.ReleaseYear)
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.Movie.NumberInStock)
     @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
 </div>
 @*  Displays Time the movie was added.
     <div class="form-group"> 
@@ -26,15 +39,10 @@
     @Html.TextBoxFor(m => m.Movie.DateAdded, "{0:d MMM yyyy}",new { @class = "form-control" })
 </div>
 *@
-<div class="form-group">
-    @Html.LabelFor(m => m.Movie.GenreId)
-    @Html.DropDownListFor(m => m.Movie.GenreId,
-    new SelectList(Model.Genres, "Id", "Name"), "Select genre",
-    new { @class = "form-control" })
 
-</div>
 
 @Html.HiddenFor(m=>m.Movie.Id)
+@Html.AntiForgeryToken()
 <button type="submit" class="btn btn-primary">Add</button>
 }
 

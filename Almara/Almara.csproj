@@ -261,6 +261,22 @@
     <Compile Include="Migrations\202105221932286_FixingRandomMovieAddingMovieID7.Designer.cs">
       <DependentUpon>202105221932286_FixingRandomMovieAddingMovieID7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105241226403_AddingMembershipTypeStaticFields.cs" />
+    <Compile Include="Migrations\202105241226403_AddingMembershipTypeStaticFields.Designer.cs">
+      <DependentUpon>202105241226403_AddingMembershipTypeStaticFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105241531282_FixingMovieReleaseYear.cs" />
+    <Compile Include="Migrations\202105241531282_FixingMovieReleaseYear.Designer.cs">
+      <DependentUpon>202105241531282_FixingMovieReleaseYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105241537551_UpdatingReleaseYearValues.cs" />
+    <Compile Include="Migrations\202105241537551_UpdatingReleaseYearValues.Designer.cs">
+      <DependentUpon>202105241537551_UpdatingReleaseYearValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105241543457_fixingMovieClass.cs" />
+    <Compile Include="Migrations\202105241543457_fixingMovieClass.Designer.cs">
+      <DependentUpon>202105241543457_fixingMovieClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -520,6 +536,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105221932286_FixingRandomMovieAddingMovieID7.resx">
       <DependentUpon>202105221932286_FixingRandomMovieAddingMovieID7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105241226403_AddingMembershipTypeStaticFields.resx">
+      <DependentUpon>202105241226403_AddingMembershipTypeStaticFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105241531282_FixingMovieReleaseYear.resx">
+      <DependentUpon>202105241531282_FixingMovieReleaseYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105241537551_UpdatingReleaseYearValues.resx">
+      <DependentUpon>202105241537551_UpdatingReleaseYearValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105241543457_fixingMovieClass.resx">
+      <DependentUpon>202105241543457_fixingMovieClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

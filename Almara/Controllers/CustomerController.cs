@@ -35,7 +35,8 @@ namespace Almara.Controllers
             return View(custList);
         }
 
-        [HttpPost] // Can only post can be accessed manually > customer/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if(!ModelState.IsValid)
@@ -90,6 +91,7 @@ namespace Almara.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer=new Customer(),
                 MembershipTypes = membershipTypes
             };
              
