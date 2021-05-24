@@ -22,7 +22,7 @@ namespace Almara.Controllers
             _context.Dispose();
         }
 
-        [ValidateAntiForgeryToken]
+        
         [HttpPost]
         public ActionResult Save(Movie movie)
         {
@@ -47,8 +47,8 @@ namespace Almara.Controllers
             {
                 return HttpNotFound();
             }
-            var viewModel = new MovieFormViewModel()
-            {   Movie = movie,
+            var viewModel = new MovieFormViewModel(movie)
+            {   
                 Genres = _context.Genres.ToList()
                
             };
@@ -71,9 +71,9 @@ namespace Almara.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new MovieFormViewModel
+                var viewModel = new MovieFormViewModel(movie)
                 {
-                    Movie = movie,
+                   
                     Genres = _context.Genres.ToList()
 
                 };
@@ -93,11 +93,11 @@ namespace Almara.Controllers
         
         public ActionResult New()
         {
-            var genres = _context.Genres.ToList();
+            
             var viewModel = new MovieFormViewModel
             {
-                Movie = new Movie(),
-                Genres=genres 
+
+                Genres = _context.Genres.ToList()
             };
 
             return View("MovieForm",viewModel);

@@ -25,7 +25,8 @@ namespace Almara.Models
 
         [Required] 
         [Display(Name="Number in stock")]
-        
+        [Range(1,20)]
+
         public int NumberInStock { get; set; }
 
         
