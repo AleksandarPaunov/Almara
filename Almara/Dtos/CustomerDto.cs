@@ -17,14 +17,14 @@ namespace Almara.Dtos
 
         public bool IsSubscribedToNewsletter { get; set; }
 
-      
-        
+        public MembershipTypeDto MembershipType { get; set; }
+
         public int MembershipTypeId { get; set; }
 
         
         
         public DateTime? BirthDate { get; set; }
 
-        public MembershipTypeDto MembershipTypeDto { get; set; }
+        
     }
 }

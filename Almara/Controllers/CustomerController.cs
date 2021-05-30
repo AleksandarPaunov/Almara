@@ -24,15 +24,7 @@ namespace Almara.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
-            var custList = new RandomMovieViewModel() 
-            { Customers= customers };
-
-            if (customers.Count==0)
-            {
-                return Content("Currently you dont have any customers");
-            }
-            return View(custList);
+            return View();
         }
 
         [HttpPost]

@@ -21,16 +21,18 @@ namespace Almara.Controllers.Api
         }
 
         //GET /api/customers
-        public IHttpActionResult GetCustomers(string query = null)
+        public IHttpActionResult GetCustomers()
         {
-            var customersQuery = _context.Customers.Include(c => c.MembershipType);
+            var customersInDb = _context.Customers.Include(m => m.MembershipType).ToList();
+            //Mapper.Map<MembershipType, MembershipTypeDto>(customersInDb, customerDtos);
 
-            if (!String.IsNullOrWhiteSpace(query))
-                customersQuery = customersQuery.Where(c => c.Name.Contains(query));
+            var customerDtos = customersInDb.ToList().Select(Mapper.Map<Customer, CustomerDto>);
 
-            var customerDtos = customersQuery
-                .ToList()
-                .Select(Mapper.Map<Customer, CustomerDto>);
+            
+
+
+
+
 
             return Ok(customerDtos);
         }
