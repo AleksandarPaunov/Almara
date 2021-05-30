@@ -22,12 +22,14 @@ namespace Almara.Controllers.Api
 
         public IHttpActionResult GetMovies(string query=null)
         {
-            var movieQuery = _context.Movies.Include(m => m.Genre);
-            if (!String.IsNullOrWhiteSpace(query))
-                movieQuery = movieQuery.Where(m => m.Name == query);
-                var movieDto = movieQuery.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var moviesInDb = _context.Movies
+                .Include(m => m.Genre)
+                .ToList();
+            var moviesDto = moviesInDb.ToList()
+                                        .Select(Mapper.Map<Movie, MovieDto>);
+                
 
-                return Ok(movieDto);
+                return Ok(moviesDto);
 
             
 

@@ -18,7 +18,10 @@ namespace Almara.App_Start
             Mapper.CreateMap<MovieDto, Movie>();
             Mapper.CreateMap<MembershipTypeDto, MembershipType>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
-            
+            Mapper.CreateMap<Genre, GenreDto>();
+            Mapper.CreateMap< GenreDto, Genre>();
+
+
         }
     }
 }

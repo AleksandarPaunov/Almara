@@ -26,7 +26,8 @@ namespace Almara.Controllers.Api
             var customersInDb = _context.Customers.Include(m => m.MembershipType).ToList();
             //Mapper.Map<MembershipType, MembershipTypeDto>(customersInDb, customerDtos);
 
-            var customerDtos = customersInDb.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            var customerDtos = customersInDb.ToList()
+                                            .Select(Mapper.Map<Customer, CustomerDto>);
 
             
 

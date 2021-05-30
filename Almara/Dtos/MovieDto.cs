@@ -26,7 +26,7 @@ namespace Almara.Dtos
         [Range(1, 20)]
         public int NumberInStock { get; set; }
 
-
+        public GenreDto Genre { get; set; }
         [Required]
         
         public int GenreId { get; set; }
