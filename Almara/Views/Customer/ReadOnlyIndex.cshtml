@@ -1,0 +1,56 @@
+﻿@model Almara.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+<table id="customers" class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th> Customer </th>
+            <th> Membership Type</th>
+            
+        </tr>
+
+
+    </thead>
+
+    <tbody>
+
+
+
+    </tbody>
+
+</table>
+<h3></h3>
+
+
+@section scripts
+{
+    
+    <script>
+        
+            $(document).ready(function () {
+                var table = $("#customers").DataTable({
+                ajax: {
+                            url: "/api/customers",
+                            dataSrc: ""
+                    },
+                    columns: [
+                        {
+                            data: "name",
+                            
+                        },
+                        {
+                            data: "membershipType.name"
+                        },
+                      
+                    ]
+                });
+                
+            });
+    </script>
+   
+}

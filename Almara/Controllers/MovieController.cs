@@ -24,6 +24,7 @@ namespace Almara.Controllers
 
         
         [HttpPost]
+        [Authorize(Roles =RoleName.CanManageMovies)]
         public ActionResult Save(Movie movie)
         {
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == movie.Id);
@@ -39,7 +40,7 @@ namespace Almara.Controllers
         }
        
         
-
+        [Authorize(Roles =RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -67,6 +68,7 @@ namespace Almara.Controllers
         
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize(Roles =RoleName.CanManageMovies)]
         public ActionResult Add(Movie movie)
         {
             if (!ModelState.IsValid)
@@ -90,7 +92,7 @@ namespace Almara.Controllers
         }
 
         
-        
+        [Authorize(Roles =RoleName.CanManageMovies)]
         public ActionResult New()
         {
             
@@ -105,15 +107,18 @@ namespace Almara.Controllers
 
         public ActionResult Index()
         {
-
+           
             var movies = _context.Movies.Include(m => m.Genre).ToList();
             var listMovies = new RandomMovieViewModel
             {
                 Movies = movies
             };
+            if (User.IsInRole(RoleName.CanManageMovies))
+            {
+                return View(listMovies);
+            }
 
-
-            return View(listMovies);
+            return View("ReadOnlyIndex");
 
 
 

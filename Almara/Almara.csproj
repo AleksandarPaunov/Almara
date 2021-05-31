@@ -301,6 +301,10 @@
     <Compile Include="Migrations\202105301238269_AddingMembershipTypeDto.Designer.cs">
       <DependentUpon>202105301238269_AddingMembershipTypeDto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105311930286_SeedUsers.cs" />
+    <Compile Include="Migrations\202105311930286_SeedUsers.Designer.cs">
+      <DependentUpon>202105311930286_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -309,6 +313,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18IfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -662,6 +667,8 @@
     <Content Include="Views\Movie\MovieForm.cshtml" />
     <Content Include="Views\Movie\Edit.cshtml" />
     <Content Include="Views\Customer\New.cshtml" />
+    <Content Include="Views\Customer\ReadOnlyIndex.cshtml" />
+    <Content Include="Views\Movie\ReadOnlyIndex.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -750,6 +757,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105301238269_AddingMembershipTypeDto.resx">
       <DependentUpon>202105301238269_AddingMembershipTypeDto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311930286_SeedUsers.resx">
+      <DependentUpon>202105311930286_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

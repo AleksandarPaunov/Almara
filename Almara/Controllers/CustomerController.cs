@@ -24,11 +24,17 @@ namespace Almara.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageMovies))
+            {
+                return View();
+            }
+
+            return View("ReadOnlyIndex");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles=RoleName.CanManageMovies)]
         public ActionResult Save(Customer customer)
         {
             if(!ModelState.IsValid)
@@ -78,6 +84,7 @@ namespace Almara.Controllers
             return View("CustomerForm",viewModel);
         }
 
+        
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -90,7 +97,7 @@ namespace Almara.Controllers
             return View("CustomerForm",viewModel);
         }
 
-
+        [Authorize(Roles =RoleName.CanManageMovies)]
         public ActionResult Details(int id)
         {
             Customer cust = _context.Customers.Include(c => c.MembershipType)
