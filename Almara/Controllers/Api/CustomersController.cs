@@ -1,5 +1,6 @@
 ﻿using Almara.Dtos;
 using Almara.Models;
+using Almara.Models.IdentityModels;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Almara.Controllers.Api
         }
 
         //GET /api/customers
+        [Authorize()]
         public IHttpActionResult GetCustomers()
         {
             var customersInDb = _context.Customers.Include(m => m.MembershipType).ToList();

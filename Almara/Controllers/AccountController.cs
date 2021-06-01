@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Almara.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Almara.Models.IdentityModels;
+
 
 namespace Almara.Controllers
 {
@@ -152,7 +154,17 @@ namespace Almara.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    PersonalIdentificationNumber = model.PersonalIdentificationNumber,
+                    Phone = model.Phone
+
+                    
+                    
+                    
+                    
+                    };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -370,7 +382,14 @@ namespace Almara.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    PersonalIdentificationNumber = model.PersonalIdentificationNumber,
+                    Phone=model.Phone
+                    
+
+                    };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

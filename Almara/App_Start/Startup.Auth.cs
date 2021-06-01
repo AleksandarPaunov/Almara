@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Almara.Models;
+using Thinktecture.IdentityModel;
+using Almara.Models.IdentityModels;
 
 namespace Almara
 {
@@ -14,6 +16,8 @@ namespace Almara
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+
+           
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
@@ -54,15 +58,15 @@ namespace Almara
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "194234869223350",
+               appSecret: "50bd29d487173ce51e91557ba26614f1");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "897980168787-skqkts0cpcvo294n43b2e78crd8q53fq.apps.googleusercontent.com",
+                ClientSecret = "Sc9RYcJHVmrpfTxhz0N8I3wK"
+            });
         }
     }
 }

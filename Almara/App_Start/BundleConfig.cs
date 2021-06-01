@@ -28,9 +28,11 @@ namespace Almara
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-darkly.css",
                       "~/content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/zocial.css",
                       "~/Content/site.css"));
-           
-            
+
+
+
         } 
     }
 }

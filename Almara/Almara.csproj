@@ -53,10 +53,14 @@
     <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -118,6 +122,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Thinktecture.IdentityModel.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Thinktecture.IdentityModel.Core.1.4.0\lib\net45\Thinktecture.IdentityModel.Core.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -305,10 +312,27 @@
     <Compile Include="Migrations\202105311930286_SeedUsers.Designer.cs">
       <DependentUpon>202105311930286_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105312040506_PersonalIdentificationNumberAddedToRegister.cs" />
+    <Compile Include="Migrations\202105312040506_PersonalIdentificationNumberAddedToRegister.Designer.cs">
+      <DependentUpon>202105312040506_PersonalIdentificationNumberAddedToRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105312104308_PIN6-8digits.cs" />
+    <Compile Include="Migrations\202105312104308_PIN6-8digits.Designer.cs">
+      <DependentUpon>202105312104308_PIN6-8digits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105312111070_fixingBugWithPINRange.cs" />
+    <Compile Include="Migrations\202105312111070_fixingBugWithPINRange.Designer.cs">
+      <DependentUpon>202105312111070_fixingBugWithPINRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106011902419_AddingPhoneToRegisterUser.cs" />
+    <Compile Include="Migrations\202106011902419_AddingPhoneToRegisterUser.Designer.cs">
+      <DependentUpon>202106011902419_AddingPhoneToRegisterUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IdentityModels\ApplicationDbContext.cs" />
+    <Compile Include="Models\IdentityModels\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18IfAMember.cs" />
@@ -437,6 +461,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\zocial.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -760,6 +785,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105311930286_SeedUsers.resx">
       <DependentUpon>202105311930286_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105312040506_PersonalIdentificationNumberAddedToRegister.resx">
+      <DependentUpon>202105312040506_PersonalIdentificationNumberAddedToRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105312104308_PIN6-8digits.resx">
+      <DependentUpon>202105312104308_PIN6-8digits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105312111070_fixingBugWithPINRange.resx">
+      <DependentUpon>202105312111070_fixingBugWithPINRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011902419_AddingPhoneToRegisterUser.resx">
+      <DependentUpon>202106011902419_AddingPhoneToRegisterUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

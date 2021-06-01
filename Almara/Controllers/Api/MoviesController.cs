@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Data.Entity;
 using AutoMapper;
 using Almara.Dtos;
+using Almara.Models.IdentityModels;
 
 namespace Almara.Controllers.Api
 {
@@ -19,7 +20,7 @@ namespace Almara.Controllers.Api
         {
             _context = new ApplicationDbContext();
         }
-
+        
         public IHttpActionResult GetMovies(string query=null)
         {
             var moviesInDb = _context.Movies
@@ -36,7 +37,7 @@ namespace Almara.Controllers.Api
             
         }
 
-
+        
         public IHttpActionResult GetMovie(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -49,6 +50,7 @@ namespace Almara.Controllers.Api
 
         }
         [HttpPost]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
             if (!ModelState.IsValid)
@@ -66,6 +68,7 @@ namespace Almara.Controllers.Api
         }
 
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult Update(MovieDto movieDto,int id)
         {
             if (!ModelState.IsValid) // checks if the passed object is valid
@@ -88,7 +91,7 @@ namespace Almara.Controllers.Api
 
 
         }
-
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpDelete]
         public IHttpActionResult Delete (int id)
         {

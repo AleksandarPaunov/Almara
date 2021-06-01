@@ -8,6 +8,14 @@ namespace Almara.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "PIN")]
+        public string PersonalIdentificationNumber { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -64,6 +72,16 @@ namespace Almara.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(10, ErrorMessage = "PIN has to be 8-10 digits.", MinimumLength = 8)]
+        [Display(Name ="PIN")]
+        public string PersonalIdentificationNumber { get; set; }
+
+        [Required]
+        [StringLength(15, ErrorMessage = "Phone has to be between 8-15 digits", MinimumLength = 8)]
+        public string Phone { get; set; }
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
