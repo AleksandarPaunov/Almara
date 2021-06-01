@@ -20,7 +20,12 @@ html {
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-repeat:round;
+    background-size:auto;
+    image-rendering:optimizeQuality;
     
+
+
 }
 article,
 aside,
@@ -3042,9 +3047,12 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
-  color: #ffffff;
-  background-color: #3498db;
-  border-color: #464545;
+    color: whitesmoke;
+    background-color: Highlight;
+    border-color: #464545;
+    position: relative;
+    left: 5%;
+    margin-top: 50%;
 }
 .btn-default:focus,
 .btn-default.focus {
@@ -6928,4 +6936,17 @@ a.list-group-item-danger.active {
 .panel-default > .panel-heading {
   background-color: #464545;
 }
+.panel-footer {
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 30px;
+    width: 100%;
+    /* Height of the footer*/
+    height: 40px;
+}
+  
+
+
+
+
 

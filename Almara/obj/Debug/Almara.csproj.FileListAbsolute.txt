@@ -150,3 +150,8 @@ D:\VSprojects\Almara\Almara\obj\Debug\Almara.csproj.CopyComplete
 D:\VSprojects\Almara\Almara\obj\Debug\Almara.dll
 D:\VSprojects\Almara\Almara\obj\Debug\Almara.pdb
 D:\VSprojects\Almara\Almara\obj\Debug\Almara.csprojAssemblyReference.cache
+D:\VSprojects\Almara\Almara\bin\Glimpse.Ado.dll
+D:\VSprojects\Almara\Almara\bin\Glimpse.AspNet.dll
+D:\VSprojects\Almara\Almara\bin\Glimpse.Core.dll
+D:\VSprojects\Almara\Almara\bin\Glimpse.EF6.dll
+D:\VSprojects\Almara\Almara\bin\Glimpse.Mvc5.dll
